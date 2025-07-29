@@ -1,0 +1,393 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Main Container (now part of Bootstrap structure) */
+/* The .container class from Bootstrap will handle max-width and centering */
+/* Custom padding and shadow for the main content card */
+.card.shadow-sm {
+    border-radius: 8px;
+    overflow: hidden; /* Ensures content stays within rounded corners */
+}
+
+/* Tickets Header (inside the card-body or similar) */
+.tickets-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    padding-top: 15px; /* Added padding to match card content */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.ticket-views .btn-view {
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    padding: 8px 15px;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    color: #495057;
+}
+
+.ticket-views .btn-view.active,
+.ticket-views .btn-view:hover {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+/* Custom styling for Bootstrap's btn-success to match previous green */
+.btn-success {
+    background-color: #28a744 !important; /* Green for new ticket */
+    border-color: #28a744 !important;
+    color: #fff !important;
+}
+
+.btn-success:hover {
+    background-color: #218838 !important;
+    border-color: #1e7e34 !important;
+}
+
+/* Custom styling for Bootstrap's btn-sm */
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.2rem;
+}
+
+/* Search and Sort Section */
+.search-sort-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-left: 20px; /* Align with card content */
+    padding-right: 20px;
+}
+
+.search-box input {
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    width: 250px;
+}
+
+.search-box .advanced-search {
+    margin-left: 10px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.btn-sort {
+    background-color: #6c757d; /* Grey for sort */
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.btn-sort:hover {
+    background-color: #5a6268;
+}
+
+/* Ticket List Table */
+.ticket-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.ticket-list th,
+.ticket-list td {
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    text-align: left;
+}
+
+.ticket-list th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #495057;
+}
+
+.ticket-list .no-results {
+    text-align: center;
+    font-style: italic;
+    color: #6c757d;
+    padding: 20px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8em;
+    color: #6c757d;
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+/* -------------------------------------------------------------------------- */
+/* New Ticket Page Specific Styles */
+/* -------------------------------------------------------------------------- */
+
+.new-ticket-container {
+    max-width: 900px; /* Adjust width for the form */
+    /* Padding is now handled by Bootstrap's container and card-body */
+}
+
+.new-ticket-container h2 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* New wrapper for sections to apply full-height border */
+.section-wrapper {
+    border-left: 4px solid #007bff; /* The blue border */
+    background-color: #f8f9fa; /* Light background for the section */
+    margin-bottom: 20px; /* Space between sections */
+    padding-top: 10px; /* Padding inside the wrapper */
+    padding-bottom: 10px;
+    padding-right: 15px; /* Padding on the right */
+    border-radius: 4px; /* Slight rounding for the section box */
+    overflow: hidden; /* Ensures content stays within rounded corners */
+}
+
+/* Adjust form-section-title to fit inside the new wrapper */
+.form-section-title {
+    background-color: transparent; /* No background here, it's on the wrapper */
+    padding: 5px 0 10px 15px; /* Padding for text inside the wrapper, left padding for alignment */
+    margin-bottom: 15px; /* Space below title */
+    border-left: none; /* Remove border from here */
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1em;
+    border-bottom: 1px solid #eee; /* Keep the bottom border for the title */
+}
+
+.new-ticket-form .row {
+    margin-left: 0; /* Override Bootstrap's negative margin for rows */
+    margin-right: 0;
+    padding-left: 15px; /* Align content with the section title */
+    padding-right: 15px;
+}
+
+.new-ticket-form .form-group {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    margin-bottom: 15px; /* Space between form groups */
+}
+
+.new-ticket-form .form-group label {
+    flex: 0 0 120px; /* Fixed width for labels */
+    margin-right: 15px;
+    text-align: right;
+    font-weight: normal;
+    color: #555;
+    font-size: 0.95em;
+}
+
+.new-ticket-form .form-group input[type="text"],
+.new-ticket-form .form-group input[type="email"],
+.new-ticket-form .form-group input[type="date"],
+.new-ticket-form .form-group select,
+.new-ticket-form .form-group textarea {
+    flex-grow: 1;
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 0.95em;
+    min-width: 0; /* Allow shrinking in flex context */
+}
+
+.new-ticket-form .form-group textarea {
+    min-height: 80px; /* Default height for textareas */
+    resize: vertical;
+}
+
+.input-with-button {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-with-button select,
+.input-with-button input {
+    flex-grow: 1;
+}
+
+.btn-add-new {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.btn-add-new:hover {
+    background-color: #0056b3;
+}
+
+.input-with-addon {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-with-addon input[type="date"] {
+    flex-grow: 0; /* Don't let date input grow too much */
+    width: 150px; /* Fixed width for date input */
+}
+
+.input-with-addon .addon {
+    font-size: 0.85em;
+    color: #6c757d;
+    white-space: nowrap;
+}
+
+.form-group-full {
+    margin-bottom: 20px;
+}
+
+.form-group-full label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: normal;
+    color: #555;
+    font-size: 0.95em;
+}
+
+.input-with-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.input-with-checkbox select {
+    flex-grow: 1;
+    min-width: 150px; /* Ensure select doesn't get too small */
+}
+
+.input-with-checkbox input[type="checkbox"] {
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+.rich-text-editor {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    overflow: hidden; /* For rounded corners */
+}
+
+.rich-text-editor .toolbar {
+    background-color: #e9ecef;
+    padding: 5px;
+    border-bottom: 1px solid #ced4da;
+    display: flex;
+    gap: 5px;
+}
+
+.rich-text-editor .toolbar button {
+    background: none;
+    border: 1px solid #ccc;
+    padding: 5px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.rich-text-editor .toolbar button:hover {
+    background-color: #d6d8db;
+}
+
+.rich-text-editor textarea {
+    width: calc(100% - 20px); /* Adjust for padding */
+    min-height: 150px;
+    border: none;
+    padding: 10px;
+    box-sizing: border-box; /* Include padding in width */
+    font-family: Arial, sans-serif;
+    font-size: 0.95em;
+    resize: vertical;
+}
+
+.file-upload-section {
+    border: 2px dashed #ced4da;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #fcfcfc;
+}
+
+.file-upload-section p {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #6c757d;
+}
+
+.file-upload-section input[type="file"] {
+    display: block; /* Make it block to center */
+    margin: 0 auto;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    text-decoration: none; /* For anchor tags if used as buttons */
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
