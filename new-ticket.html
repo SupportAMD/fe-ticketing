@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Your custom stylesheet -->
     <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="ticket.css">
     <!-- Optional: Include a rich text editor library if needed (e.g., CKEditor) -->
     <!-- <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script> -->
 </head>
+
 <body>
 
     <!-- Main Container -->
@@ -21,13 +25,13 @@
             <!-- Logo -->
             <div class="d-flex align-items-center gap-3">
                 <!-- Pastikan path 'assets/logo.png' sudah benar -->
-                <img src="assets/amital-logo.png" alt="Aku Mitra Digital Logo" style="height: 40px;" onerror="this.onerror=null;this.src='https://placehold.co/150x40/E9ECEF/6C757D?text=Logo';">
+                <img src="assets/amital-logo.png" alt="Aku Mitra Digital Logo" style="height: 40px;"
+                    onerror="this.onerror=null;this.src='https://placehold.co/150x40/E9ECEF/6C757D?text=Logo';">
                 <h1 class="h5 fw-bold text-secondary mb-0">AKU MITRA DIGITAL</h1>
             </div>
             <!-- User Info and Actions -->
             <div class="small">
                 <span>Welcome, Fairuz</span> |
-                <a href="#" class="text-primary text-decoration-none">Admin Panel</a> |
                 <a href="#" class="text-primary text-decoration-none">Profile</a> |
                 <a href="#" class="text-primary text-decoration-none">Log Out</a>
             </div>
@@ -39,168 +43,289 @@
             <div class="card-header p-0">
                 <ul class="nav nav-tabs">
                     <li class="nav-item"><a href="#" class="nav-link text-secondary">Dashboard</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-secondary">Users</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-secondary">Tasks</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Tickets</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-secondary">Knowledgebase</a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link active" aria-current="page">Tickets</a>
+                    </li>
                 </ul>
             </div>
 
             <!-- Sub Navigation & Actions -->
             <div class="card-body bg-light border-bottom p-3">
-                <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
-                    <div class="d-flex flex-wrap align-items-center gap-2">
-                        <button class="btn btn-outline-secondary btn-sm d-flex align-items-center gap-1">Open <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg></button>
-                        <button class="btn btn-outline-secondary btn-sm d-flex align-items-center gap-1">My Tickets <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg></button>
-                        <button class="btn btn-outline-secondary btn-sm d-flex align-items-center gap-1">Closed <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg></button>
-                        <button class="btn btn-outline-secondary btn-sm d-flex align-items-center gap-1">Search <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg></button>
+                <div class="horizontal-bar">
+                    <div class="input-group flex-grow-1" style="max-width: 300px;">
+                        <input type="search" placeholder="Search..." class="form-control">
+                        <a href="#" class="input-group-text text-primary text-decoration-none bg-white">
+                            <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                            </svg>
+                        </a>
                     </div>
+
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle d-flex align-items-center gap-1"
+                            type="button" id="openDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            Status
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="openDropdownButton">
+                            <li><a class="dropdown-item" href="#">Open</a></li>
+                            <li><a class="dropdown-item" href="#">On Progress</a></li>
+                            <li><a class="dropdown-item" href="#">Resolved</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sort">
+                        <button class="btn btn-outline-secondary btn-sm d-flex align-items-center gap-1">
+                            <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
+                            </svg>
+                            Sort
+                        </button>
+                    </div>
+
                     <div>
-                        <button class="btn btn-success btn-sm btn-new-ticket">New Ticket</button>
+                        <button id="openPopup" type="button" class="btn btn-success btn-sm btn-new-ticket">
+                            New Ticket
+                        </button>
                     </div>
                 </div>
             </div>
 
-        <!-- Main Content Area for New Ticket Page -->
-        
-           
-                <div class="card-body">
-                    <h2 class="mb-4">Open a New Ticket</h2>
+            <!-- Main Content Area for New Ticket Page -->
 
-                    <form class="new-ticket-form">
-                        <!-- User and Collaborators Section -->
-                        <div class="form-section-title">User and Collaborators</div>
-                        <div class="row g-3 mb-4">
-                            <div class="col-md-6">
-                                <div class="form-group d-flex align-items-center">
-                                    <label for="userSearchInput" class="form-label me-3 text-end" style="min-width: 80px;">User:</label>
-                                    <div class="input-group flex-grow-1">
-                                        <input type="text" id="userSearchInput" class="form-control" placeholder="Search by Email, phone or name">
-                                        <!-- Add an ID to the button to target it for modal opening -->
-                                        <button type="button" class="btn btn-primary btn-sm ms-2" id="openUserModalBtn">+ Add New</button>
-                                    </div>
-                                    <!-- Message display area for search validation/results -->
-                                    <div id="userValidationMessage" class="form-text text-danger mt-1 w-100 ps-4" style="display: none;"></div>
-                                </div>
-                            </div>
-                        
-                            <div class="col-md-6">
-                                <div class="form-group d-flex align-items-center">
-                                    <label for="contact" class="form-label me-3 text-end" style="min-width: 80px;">Contact:</label>
-                                    <div class="input-group flex-grow-1">
-                                        <select id="user" class="form-select">
-                                            <option>Select Contact</option>
-                                            <!-- More options would be dynamically loaded -->
-                                        </select>
-                                        <button type="button" class="btn btn-primary btn-sm ms-2">+ Add New</button>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="card-body">
+                <h2 class="mb-4">Open a New Ticket</h2>
 
-                            <!-- Ticket Notice and Options Section -->
-                            <div class="col-md-6">
-                                <div class="form-group d-flex align-items-center">
-                                    <label for="ticketNotice" class="form-label me-3 text-end" style="min-width: 80px;">Ticket Notice:</label>
-                                    <select id="ticketNotice" class="form-select flex-grow-1">
-                                        <option>Ram All</option>
-                                        <!-- Options -->
-                                    </select>
-                                </div>
-                            </div>
+                <form class="new-ticket-form">
 
+                    <!-- Ticket Status Section -->
+                    <div class="form-section-title">Ticket Status</div>
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <!-- Tampilan teks saja -->
+                            <div class="form-group">
+                                <input type="text" class="form-control" value="Open" disabled>
+                                <input type="hidden" name="status" value="Open">
+                            </div>
                         </div>
+                    </div>
 
-                        <!-- Ticket Information and Options Section -->
-                        <div class="form-section-title">Ticket Information and Options</div>
-                        <div class="row g-3 mb-4">
-                            <div class="col-md-6">
-                                <div class="form-group d-flex align-items-center">
-                                    <label for="ticketSource" class="form-label me-3 text-end" style="min-width: 80px;">Ticket Source:</label>
-                                    <select id="ticketSource" class="form-select flex-grow-1">
-                                        <option>Phone</option>
-                                        <!-- Options -->
-                                    </select>
+                    <!-- User and Collaborators Section -->
+                    <div class="form-section-title">User and Collaborators</div>
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <div class="form-group d-flex align-items-center gap-2">
+                                <label for="userSearchInput" class="form-label me-3 text-end"
+                                    style="min-width: 40px;">User:</label>
+                                <div class="d-flex gap-2 w-100">
+                                    <input type="text" id="userSearchInput" class="form-control"
+                                        placeholder="Input Email">
+                                    <span id="userValidIcon" class="valid-icon text-success d-none">✔</span>
+                                    <!-- Add an ID to the button to target it for modal opening -->
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group d-flex align-items-center">
-                                    <label for="helpTopic" class="form-label me-3 text-end" style="min-width: 80px;">Help Topic:</label>
-                                    <select id="helpTopic" class="form-select flex-grow-1">
-                                        <option>-- Select Help Topic --</option>
-                                        <!-- Options -->
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group d-flex align-items-center">
-                                    <label for="department" class="form-label me-3 text-end" style="min-width: 80px;">Department:</label>
-                                    <select id="department" class="form-select flex-grow-1">
-                                        <option>-- Select Department --</option>
-                                        <!-- Options -->
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group d-flex align-items-center">
-                                    <label for="slaPlan" class="form-label me-3 text-end" style="min-width: 80px;">SLA Plan:</label>
-                                    <select id="slaPlan" class="form-select flex-grow-1">
-                                        <option>System Default</option>
-                                        <!-- Options -->
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group d-flex align-items-center">
-                                    <label for="dueDate" class="form-label me-3 text-end" style="min-width: 80px;">Due Date:</label>
-                                    <div class="input-group flex-grow-1">
-                                        <input type="date" id="dueDate" class="form-control">
-                                        <span class="input-group-text small text-muted">(WIB) Time is based on your time zone (Asia/Jakarta)</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group d-flex align-items-center">
-                                    <label for="assignTo" class="form-label me-3 text-end" style="min-width: 80px;">Assign To:</label>
-                                    <select id="assignTo" class="form-select flex-grow-1">
-                                        <option>-- Select an Agent OR a Team --</option>
-                                        <!-- Options -->
-                                    </select>
-                                </div>
+                                <!-- Message display area for search validation/results -->
+                                <div id="userValidationMessage" class="form-text text-danger mt-1 w-100 ps-4"
+                                    style="display: none;"></div>
                             </div>
                         </div>
 
-                        <!-- Response Section -->
-                        <div class="form-section-title">Response: Optional response to the above issue.</div>
-                        <div class="mb-4">
-                            <div class="form-group d-flex align-items-center mb-3">
-                                <label for="cannedResponse" class="form-label me-3 text-end" style="min-width: 120px;">Canned Response:</label>
-                                <select id="cannedResponse" class="form-select flex-grow-1">
-                                    <option>-- Select a canned response --</option>
+                        <div class="col-md-6">
+                            <div class="form-group d-flex align-items-center gap-2">
+                                <label for="contactSearchInput" class="form-label me-3 text-end"
+                                    style="min-width: 25px;">Cc:</label>
+                                <div class="d-flex gap-2 w-100">
+                                    <input type="text" id="contactSearchInput" class="form-control"
+                                        placeholder="Input Email">
+                                    <span id="contactValidIcon" class="valid-icon text-success d-none">✔</span>
+                                    <!-- Add an ID to the button to target it for modal opening -->
+                                    <button id="addNewUserBtn" type="button"
+                                        class="btn btn-primary btn-sm btn-match-input">
+                                        + Add New
+                                    </button>
+                                    <script>
+                                        const addNewUserBtn = document.getElementById('addNewUserBtn');
+
+                                        addNewUserBtn.addEventListener('click', function (event) {
+                                            event.preventDefault();
+                                            // Pakai query string untuk trigger popup
+                                            window.location.href = 'new-ticket.html?showpopup=true';
+                                        });
+                                    </script>
+                                    <!-- Overlay background -->
+                                    <div id="modalOverlay"></div>
+
+                                    <!-- Modal Lookup Form -->
+                                    <div id="userModal" class="modal">
+                                        <div class="modal-header">
+                                            Create a user
+                                            <span class="close-btn" id="closeUserModal">&times;</span>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <fieldset class="user-fieldset">
+
+                                                <div class="mb-3 position-relative">
+                                                    <label for="createUserEmail" class="form-label">Email Address: <span
+                                                            class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control pe-5" id="createUserEmail"
+                                                        placeholder="Enter Email">
+                                                    <span id="createUserEmailValidIcon"
+                                                        class="valid-icon text-success d-none">✔</span>
+                                                    <div id="createUserEmailValidation"
+                                                        class="form-text text-danger mt-1" style="display: none;"></div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Full Name: <span class="required">*</span></label>
+                                                    <input type="text">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Company's Name: <span class="required">*</span></label>
+                                                    <input type="text">
+                                                </div>
+
+                                                <div class="phone-group">
+                                                    <label for="phone">Phone Number:</label>
+                                                    <div class="phone-fields">
+                                                        <input type="text" id="phone" name="phone"
+                                                            placeholder="Phone Number">
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button id="closeUserModal2">Cancel</button>
+                                            <button style="background-color: #0056b3; color: white;">Add User</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- Message display area for search validation/results -->
+                                <div id="contactValidationMessage" class="form-text text-danger mt-1 w-100 ps-4"
+                                    style="display: none;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ticket Information and Options Section -->
+                    <div class="form-section-title">Ticket Information and Options</div>
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="ticketSource" class="form-label" style="min-width: 80px;">Ticket
+                                    Source:</label>
+                                <!-- Tampilan teks saja -->
+                                <input id="ticketSource" type="text" class="form-control flex-grow-1" value="Email"
+                                    disabled>
+                                <input type="hidden" name="source" value="Email">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group d-flex align-items-center">
+                                <label for="helpTopic" class="form-label me-3 text-end" style="min-width: 80px;">Help
+                                    Topic:</label>
+                                <select id="helpTopic" class="form-select flex-grow-1">
+                                    <option>- Select Help Topic -</option>
+                                    <option>Issue - Severty 1</option>
+                                    <option>Issue - Severty 2</option>
+                                    <option>Issue - Severty 3</option>
+                                    <option>Information - Severty 4</option>
+                                    <option>Change Request</option>
                                     <!-- Options -->
                                 </select>
-                                <div class="form-check ms-3">
-                                    <input class="form-check-input" type="checkbox" id="appendCanned">
-                                    <label class="form-check-label" for="appendCanned">Append</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group d-flex align-items-center">
+                                <label for="department" class="form-label me-3 text-end"
+                                    style="min-width: 80px;">Department:</label>
+                                <select id="department" class="form-select flex-grow-1">
+                                    <option>- Select Department -</option>
+                                    <option>Cloud Solution Architect</option>
+                                    <option>Sales</option>
+                                    <option>Support</option>
+                                    <!-- Options -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group d-flex align-items-center">
+                                <label for="slaPlan" class="form-label me-3 text-end" style="min-width: 70px;">SLA
+                                    Plan:</label>
+                                <select id="slaPlan" class="form-select flex-grow-1">
+                                    <option>- System Default -</option>
+                                    <option>Default SLA (18 hours - Disabled)</option>
+                                    <option>Informational - Severty 4 (8 hours - Active)</option>
+                                    <option>Issue - Severty 1 (1 hours - Active)</option>
+                                    <option>Issue - Severty 2 (2 hours - Active)</option>
+                                    <option>Issue - Severty 3 (3 hours - Active)</option>
+                                    <!-- Options -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group d-flex align-items-center">
+                                <label for="dueDate" class="form-label me-3 text-end" style="min-width: 70px;">Due
+                                    Date:</label>
+                                <div class="input-group flex-grow-1">
+                                    <input type="date" id="dueDate" class="form-control">
+                                    <span class="input-group-text small text-muted">(WIB) Time is based on your time
+                                        zone (Asia/Jakarta)</span>
                                 </div>
                             </div>
-                            <div class="rich-text-editor border rounded overflow-hidden">
-                                <!-- Placeholder for rich text editor toolbar -->
-                                <div class="toolbar bg-light p-2 border-bottom d-flex gap-2">
-                                    <button type="button" class="btn btn-light btn-sm border">B</button>
-                                    <button type="button" class="btn btn-light btn-sm border">I</button>
-                                    <button type="button" class="btn btn-light btn-sm border">U</button>
-                                    <button type="button" class="btn btn-light btn-sm border">S</button>
-                                    <button type="button" class="btn btn-light btn-sm border">🔗</button>
-                                    <button type="button" class="btn btn-light btn-sm border">🖼️</button>
-                                    <button type="button" class="btn btn-light btn-sm border">📝</button>
-                                    <button type="button" class="btn btn-light btn-sm border">💡</button>
-                                    <button type="button" class="btn btn-light btn-sm border">✔️</button>
-                                    <button type="button" class="btn btn-light btn-sm border">❌</button>
-                                    <button type="button" class="btn btn-light btn-sm border">📊</button>
-                                    <button type="button" class="btn btn-light btn-sm border">⚙️</button>
-                                </div>
-                                <textarea id="initialResponse" class="form-control border-0 rounded-0" rows="8" placeholder="Initial response for the ticket"></textarea>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group d-flex align-items-center">
+                                <label for="assignTo" class="form-label me-3 text-end" style="min-width: 80px;">Assign
+                                    To:</label>
+                                <select id="assignTo" class="form-select flex-grow-1">
+                                    <option>- Select an Agent OR a Team -</option>
+                                    <!-- Options -->
+                                </select>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Response Section -->
+                    <div class="form-section-title">Product Options to the Above Issue</div>
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <div class="form-group d-flex align-items-center">
+                                <label for="cannedResponse" class="form-label me-3 text-end"
+                                    style="min-width: 70px;">Products:</label>
+                                <select id="cannedResponse" class="form-select flex-grow-1">
+                                    <option selected disabled>Select a product</option>
+                                    <option>GCP</option>
+                                    <option>Alibaba</option>
+                                    <option>Huawei</option>
+                                    <option>Google Workspace</option>
+                                    <option>M365</option>
+                                    <!-- Add more canned responses -->
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="rich-text-editor border rounded overflow-hidden">
+                            <!-- Placeholder for rich text editor toolbar -->
+                            <div class="toolbar bg-light p-2 border-bottom d-flex gap-2">
+                                <button type="button" class="btn btn-light btn-sm border">B</button>
+                                <button type="button" class="btn btn-light btn-sm border">I</button>
+                                <button type="button" class="btn btn-light btn-sm border">U</button>
+                                <button type="button" class="btn btn-light btn-sm border">S</button>
+                                <button type="button" class="btn btn-light btn-sm border">🔗</button>
+                                <button type="button" class="btn btn-light btn-sm border">🖼️</button>
+                                <button type="button" class="btn btn-light btn-sm border">📝</button>
+                                <button type="button" class="btn btn-light btn-sm border">💡</button>
+                                <button type="button" class="btn btn-light btn-sm border">✔️</button>
+                                <button type="button" class="btn btn-light btn-sm border">❌</button>
+                                <button type="button" class="btn btn-light btn-sm border">📊</button>
+                                <button type="button" class="btn btn-light btn-sm border">⚙️</button>
+                            </div>
+                            <textarea id="initialResponse" class="form-control border-0 rounded-0" rows="6"
+                                placeholder="Product Description for the ticket"></textarea>
                         </div>
 
                         <!-- File Upload Section -->
@@ -208,60 +333,44 @@
                             <p class="text-muted mb-2">⟳ Drop files here or choose them</p>
                             <input type="file" multiple class="form-control-file">
                         </div>
+                    </div>
 
-                        <!-- Ticket Status Section -->
-                        <div class="form-section-title">Ticket Status</div>
-                        <div class="row g-3 mb-4">
-                            <div class="col-md-6">
-                                <div class="form-group d-flex align-items-center">
-                                    <label for="ticketStatus" class="form-label me-3 text-end" style="min-width: 80px;">Ticket Status:</label>
-                                    <select id="ticketStatus" class="form-select flex-grow-1">
-                                        <option>Open</option>
-                                        <!-- Options -->
-                                    </select>
-                                    <div class="form-check ms-3">
-                                        <input class="form-check-input" type="checkbox" id="signature">
-                                        <label class="form-check-label" for="signature">Note: Department Signature (if set)</label>
-                                    </div>
-                                </div>
+                    <!-- Internal Note Section -->
+                    <div class="form-section-title">Internal Note</div>
+                    <div class="row g-3 mb-4">
+                        <div class="rich-text-editor border rounded overflow-hidden">
+                            <!-- Placeholder for rich text editor toolbar -->
+                            <div class="toolbar bg-light p-2 border-bottom d-flex gap-2">
+                                <button type="button" class="btn btn-light btn-sm border">B</button>
+                                <button type="button" class="btn btn-light btn-sm border">I</button>
+                                <button type="button" class="btn btn-light btn-sm border">U</button>
+                                <button type="button" class="btn btn-light btn-sm border">S</button>
+                                <button type="button" class="btn btn-light btn-sm border">🔗</button>
+                                <button type="button" class="btn btn-light btn-sm border">🖼️</button>
+                                <button type="button" class="btn btn-light btn-sm border">📝</button>
+                                <button type="button" class="btn btn-light btn-sm border">💡</button>
+                                <button type="button" class="btn btn-light btn-sm border">✔️</button>
+                                <button type="button" class="btn btn-light btn-sm border">❌</button>
+                                <button type="button" class="btn btn-light btn-sm border">📊</button>
+                                <button type="button" class="btn btn-light btn-sm border">⚙️</button>
                             </div>
+                            <textarea id="internalNote" class="form-control border-0 rounded-0" rows="6"
+                                placeholder="Optional internal note (recommended on assignment)"></textarea>
                         </div>
+                    </div>
 
-                        <!-- Internal Note Section -->
-                        <div class="form-section-title">Internal Note</div>
-                        <div class="mb-4">
-                            <div class="rich-text-editor border rounded overflow-hidden">
-                                <!-- Placeholder for rich text editor toolbar -->
-                                <div class="toolbar bg-light p-2 border-bottom d-flex gap-2">
-                                    <button type="button" class="btn btn-light btn-sm border">B</button>
-                                    <button type="button" class="btn btn-light btn-sm border">I</button>
-                                    <button type="button" class="btn btn-light btn-sm border">U</button>
-                                    <button type="button" class="btn btn-light btn-sm border">S</button>
-                                    <button type="button" class="btn btn-light btn-sm border">🔗</button>
-                                    <button type="button" class="btn btn-light btn-sm border">🖼️</button>
-                                    <button type="button" class="btn btn-light btn-sm border">📝</button>
-                                    <button type="button" class="btn btn-light btn-sm border">💡</button>
-                                    <button type="button" class="btn btn-light btn-sm border">✔️</button>
-                                    <button type="button" class="btn btn-light btn-sm border">❌</button>
-                                    <button type="button" class="btn btn-light btn-sm border">📊</button>
-                                    <button type="button" class="btn btn-light btn-sm border">⚙️</button>
-                                </div>
-                                <textarea id="internalNote" class="form-control border-0 rounded-0" rows="6" placeholder="Optional internal note (recommended on assignment)"></textarea>
-                            </div>
-                        </div>
-
-                        <!-- Form Actions -->
-                        <div class="form-actions d-flex justify-content-end gap-2 pt-3 border-top">
-                            <button type="submit" class="btn btn-primary">Open</button>
-                            <button type="reset" class="btn btn-secondary">Reset</button>
-                            <button type="button" class="btn btn-secondary" onclick="window.location.href='index.html'">Cancel</button>
-                        </div>
-                    </form>
-                </div>
+                    <!-- Form Actions -->
+                    <div class="form-actions d-flex justify-content-end gap-2 pt-3 border-top">
+                        <button type="submit" class="btn btn-primary">Open</button>
+                        <button type="button" class="btn btn-secondary"
+                            onclick="window.location.href='index.html'">Cancel</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        
+
         <div class="footer">
-            <p>Copyright &copy; 2006-2025 Amital Cloud Support All Rights Reserved.</p>
+            <p>Copyright &copy; 2020 Amital Cloud Support All Rights Reserved.</p>
         </div>
     </div>
 
@@ -269,6 +378,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Your custom script.js -->
     <script src="script.js"></script>
+
+    <script src="ticket.js"></script>
     <!-- If using CKEditor, initialize it here -->
     <!-- <script>
         ClassicEditor
@@ -283,6 +394,25 @@
             } );
     </script> -->
 
-    
+    <script>
+        // Ambil query parameter dari URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const showPopup = urlParams.get('showpopup');
+
+        if (showPopup === 'true') {
+            // Ganti dengan ID modal kamu sendiri
+            const modal = document.getElementById('userModal');
+            const overlay = document.getElementById('modalOverlay');
+
+            if (modal && overlay) {
+                modal.style.display = 'block';
+                overlay.style.display = 'block';
+            } else {
+                console.warn("Modal atau overlay tidak ditemukan.");
+            }
+        }
+    </script>
+
 </body>
+
 </html>

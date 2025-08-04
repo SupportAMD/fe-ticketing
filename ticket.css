@@ -1,9 +1,126 @@
-/* General Body Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     background-color: #ffffff;
-    color: #333;
+}
+
+#pageContent {
+    padding: 30px;
+    z-index: 1;
+}
+
+#modalOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 99;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    transform: translate(-50%, -50%);
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    z-index: 100;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    background: #f0f0f0;
+    padding: 15px;
+    font-size: 18px;
+    color: #1a57a5;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+}
+
+.modal-header .close-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.alert {
+    background-color: #dff4ff;
+    border: 1px solid #b5dffd;
+    padding: 10px;
+    color: #257ab9;
+    font-size: 14px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea {
+    resize: vertical;
+    height: 70px;
+}
+
+.phone-group {
+    margin-bottom: 15px;
+}
+
+.phone-fields {
+    display: flex;
+    gap: 10px;
+    /* jarak antar input */
+    margin-top: 5px;
+}
+
+.phone-fields input[type="text"] {
+    padding: 5px;
+    font-size: 14px;
+}
+
+#phone {
+    flex: 1;
+}
+
+.user-fieldset {
+    border: 1px dotted #ccc;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #ccc;
+    text-align: right;
+}
+
+button {
+    padding: 6px 12px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.required {
+    color: red;
 }
 
 /* Main Container (now part of Bootstrap structure) */
@@ -45,45 +162,6 @@ body {
     background-color: #007bff;
     color: #fff;
     border-color: #007bff;
-}
-
-.horizontal-bar {
-    display: flex;
-    align-items: center;
-    /* Memastikan semua item sejajar vertikal di tengah */
-    gap: 10px;
-    /* Jarak antar item */
-    padding: 15px;
-    background-color: #f8f9fa;
-    /* Warna latar belakang bar */
-    border-bottom: 1px solid #e9ecef;
-}
-
-.horizontal-bar .form-control {
-    flex-grow: 1;
-    /* Search bar akan mengisi ruang kosong yang tersedia */
-    max-width: 300px;
-    /* Batasi lebar maksimum search bar */
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    /* jarak antar elemen */
-}
-
-.horizontal-bar>.sort {
-    margin-right: auto;
-    /* mendorong elemen berikutnya (New Ticket) ke kanan */
-}
-
-/* Opsi untuk memberi jarak tambahan pada item tertentu jika diperlukan */
-.horizontal-bar .sort,
-.horizontal-bar .btn {
-    flex-shrink: 0;
-}
-
-.btn-new-ticket {
-    margin-left: 40px;
-    /* atur sesuai kebutuhan visual */
 }
 
 /* Custom styling for Bootstrap's btn-success to match previous green */
@@ -325,54 +403,16 @@ body {
     flex-grow: 1;
 }
 
-.valid-icon {
-    position: absolute;
-    top: 40%;
-    right: 135px;
-    transform: translateY(-50%);
-    font-size: 1.2rem;
-    color: green;
-    pointer-events: none;
-    z-index: 10;
-}
-
-
 .btn-add-new {
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 6px 12px;
+    padding: 8px 12px;
     border-radius: 4px;
     cursor: pointer;
     font-size: 0.85em;
-    height: 38px;
-    /* Match Bootstrap .form-control height */
-    line-height: 1.5;
     white-space: nowrap;
-    width: auto;
-    /* Jangan 100% */
-    min-width: 110px;
-    /* Biar tetap terlihat seimbang */
-}
-
-.d-flex>input,
-.d-flex>.btn-add-new {
-    flex: 1;
-}
-
-.btn-match-input {
-    height: 42px;
-    /* Match tinggi input */
-    padding: 6px 12px;
-    /* Padding yang pas */
-    font-size: 1rem;
-    /* Samakan ukuran teks */
-    line-height: 1.5;
-    /* Sejajarkan teks vertikal */
-    border-radius: 4px;
-    /* Biar selaras */
-    min-width: auto;
-    /* Otomatis lebarnya, tidak besar */
+    /* Prevent button text from wrapping */
 }
 
 .btn-add-new:hover {
@@ -531,40 +571,12 @@ body {
     background-color: #5a6268;
 }
 
-.modal {
-    display: none;
-    /* Defaultnya hidden */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-    position: relative;
-    margin: 5% auto;
-    padding: 0;
-    background-color: #fff;
-    width: 90%;
-    max-width: 800px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.modal-content iframe {
-    width: 100%;
-    height: 600px;
-    border: none;
-}
-
-.close,
-#closePopup {
-    font-size: 1.5rem;
-    cursor: pointer;
-    background: none;
-    border: none;
+.valid-icon {
+    position: absolute;
+    top: 70%;
+    right: 15px;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: green;
+    pointer-events: none;
 }
