@@ -122,3 +122,24 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 });
+
+// Ganti URL ini dengan URL API yang kamu gunakan
+const apiURL = 'https://ticketing.amital.co.id/tickets';
+
+fetch(apiURL, {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+        // Jika butuh token:
+        // 'Authorization': 'Bearer YOUR_TOKEN'
+    }
+})
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); // tampilkan di konsol
+        document.getElementById('result').innerText = JSON.stringify(data, null, 2); // tampilkan di HTML
+    })
+    .catch(error => {
+        console.error('Terjadi error:', error);
+        document.getElementById('result').innerText = 'Gagal mengambil data.';
+    });
